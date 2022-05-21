@@ -32,6 +32,7 @@ class ReadViewModel constructor(
         viewModelScope.launch {
             val response = userRepository.getLetterList(user.value.first!!)
             if (response.isSuccessful) {
+                Log.d("sadjfkksjf","${response.body()!!.data!!}")
                 _letterList.value = response.body()!!.data!!
             } else {
                 Log.d("ViewModelssss", "viewmodel : ${response.errorBody()!!.string()}")
