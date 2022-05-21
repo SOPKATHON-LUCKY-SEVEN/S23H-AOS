@@ -18,7 +18,6 @@ class LoginViewModel constructor(
     private val repository: LoginRepository
 ) : ViewModel() {
     private val _eventFlow = MutableSharedFlow<LoginEvent>()
-
     val name = MutableStateFlow("")
     val phoneNumber = MutableStateFlow("")
     val isInputEmpty: LiveData<Boolean> = name.combine(phoneNumber) { name, phoneNumber ->
@@ -26,21 +25,12 @@ class LoginViewModel constructor(
     }.asLiveData()
     val uiEventFlow = _eventFlow.asSharedFlow()
 
-    init {
-        viewModelScope.launch {
-            repository.getUser().collect { userId ->
-                if (userId!!.first != null) {
-                    emitEvent(LoginEvent.GoMain)
-                }
-            }
-        }
-    }
-
     fun login() {
         viewModelScope.launch {
             val response = repository.signUp(RequestUser(name.value, phoneNumber.value))
             if (response.isSuccessful) {
                 repository.setUser(response.body()!!.data!!._id, name.value)
+                emitEvent(LoginEvent.GoMain)
             } else {
                 Log.d("ViewModelssss", "viewmodel : ${response.errorBody()!!.string()}")
                 emitEvent(LoginEvent.ShowToast("중복된 유저입니다"))

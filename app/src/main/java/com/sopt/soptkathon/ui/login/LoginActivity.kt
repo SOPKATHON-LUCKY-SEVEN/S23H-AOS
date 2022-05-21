@@ -14,9 +14,9 @@ import com.sopt.soptkathon.ui.main.MainActivity
 import com.sopt.soptkathon.util.colorOf
 import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
+import java.util.regex.Pattern
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
         when (loginEvent) {
             is LoginEvent.GoMain -> {
                 startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                finishAffinity()
             }
             is LoginEvent.ShowToast -> {
                 shortToast(loginEvent.msg)
