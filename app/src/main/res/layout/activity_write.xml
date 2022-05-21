@@ -17,7 +17,7 @@
         android:textAppearance="?textAppearanceHeadline3"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_write_line1"
+        app:layout_constraintTop_toBottomOf="@+id/iv_write_btnback"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -51,28 +51,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/dt_write_letter"
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginBottom="52dp"
-        android:background="@null"
-        android:ems="10"
-        android:textAppearance="@style/TextAppearance.Star23.HeadLine5"
-        android:textColor="@color/grey_313740"
-        android:hint="감사한 내용을 입력해주세요."
-        android:inputType="textPersonName"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
+        android:shadowColor="#26000000"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        app:cardBackgroundColor="#8CFFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/et_write_fromwho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_write_line1">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/dt_write_letter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:background="@null"
+                android:gravity="top"
+                android:ems="10"
+                android:hint="감사한 내용을 입력해주세요."
+                android:inputType="textPersonName"
+                android:textAppearance="@style/TextAppearance.Star23.HeadLine5"
+                android:textColor="@color/grey_313740"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/iv_write_line1"
+        android:id="@+id/iv_write_btnback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -82,12 +106,12 @@
         app:srcCompat="@drawable/ic_arrow_back" />
 
     <ImageView
-        android:id="@+id/iv_write_line2"
+        android:id="@+id/iv_write_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintStart_toEndOf="@+id/iv_write_line1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img_logo" />
 
@@ -108,18 +132,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
-        android:ems="10"
         android:background="@null"
+        android:ems="10"
+        android:hint="닉네임"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.Star23.HeadLine3"
         android:textColor="@color/white"
-        android:hint="닉네임"
         android:textColorHint="@color/white_FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/tv_write_from"
         app:layout_constraintTop_toTopOf="@+id/tv_write_from" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_write_line1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -131,7 +155,7 @@
         app:srcCompat="@drawable/line_width_1dp" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/iv_write_line2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
