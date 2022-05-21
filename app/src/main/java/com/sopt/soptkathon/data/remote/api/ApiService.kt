@@ -2,7 +2,7 @@ package com.sopt.soptkathon.data.remote.api
 
 import com.sopt.soptkathon.data.remote.request.RequestUser
 import com.sopt.soptkathon.data.remote.request.RequestWrite
-import com.sopt.soptkathon.data.remote.response.ResponseLetterList
+import com.sopt.soptkathon.data.remote.response.ResponseLetter
 import com.sopt.soptkathon.data.remote.response.ResponseUser
 import com.sopt.soptkathon.data.remote.response.ResponseWrapper
 import com.sopt.soptkathon.data.remote.response.ResponseWrite
@@ -22,7 +22,7 @@ interface ApiService {
     @GET("/letter/{userId}")
     suspend fun getLetterList(
         @Path("userId") userId: String,
-    ): Response<ResponseWrapper<List<ResponseLetterList>>>
+    ): Response<ResponseWrapper<List<ResponseLetter>>>
 
     @POST("/letter")
     fun postWrite(
