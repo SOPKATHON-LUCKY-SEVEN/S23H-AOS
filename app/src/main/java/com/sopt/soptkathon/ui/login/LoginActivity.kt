@@ -1,7 +1,7 @@
 package com.sopt.soptkathon.ui.login
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -10,6 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityLoginBinding
+import com.sopt.soptkathon.ui.main.MainActivity
+import com.sopt.soptkathon.util.shortToast
 import java.util.regex.Pattern
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -35,24 +37,34 @@ class LoginActivity : AppCompatActivity() {
             .launchIn(lifecycleScope)
 
         binding.btnLoginLogin.setOnClickListener {
-            Log.d("asdfasfas","${viewModel.isInputEmpty.value}")
-            if (!Pattern.matches("^[가-힣]*\$", viewModel.name.value)) binding.tilLogin.error =
-                "특수문자를 사용할 수 없습니다." else binding.tilLogin.error = null
+            var temp = true
+            if (!Pattern.matches("^[가-힣]*\$", viewModel.name.value)) {
+                binding.tilLogin.error =
+                    "특수문자를 사용할 수 없습니다."
+                temp = false
+            } else binding.tilLogin.error = null
             if (!Pattern.matches(
                     "^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})\$",
                     viewModel.phoneNumber.value
                 )
-            ) binding.tilLoginPhone.error = "전화번호를 다시 입력해주세요" else binding.tilLoginPhone.error =
-                null
+            ) {
+                binding.tilLoginPhone.error = "전화번호를 다시 입력해주세요"
+                temp = false
+            } else binding.tilLoginPhone.error = null
+            if (temp) {
+                viewModel.login()
+            }
         }
     }
 
     private fun handleEvent(loginEvent: LoginEvent) {
         when (loginEvent) {
             is LoginEvent.GoMain -> {
-                Log.d("asdfasfas", "asdfmlaksmf;")
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finish()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            is LoginEvent.ShowToast -> {
+                shortToast(loginEvent.msg)
             }
         }
     }

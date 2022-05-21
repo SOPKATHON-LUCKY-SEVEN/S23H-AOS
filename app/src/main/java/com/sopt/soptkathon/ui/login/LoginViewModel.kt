@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.sopt.soptkathon.data.login.LoginRepository
-import java.util.regex.Pattern
+import com.sopt.soptkathon.data.remote.request.RequestUser
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -28,8 +28,8 @@ class LoginViewModel constructor(
 
     init {
         viewModelScope.launch {
-            repository.isAutoLogin().collect { userId ->
-                if (userId != -1) {
+            repository.getUserId().collect { userId ->
+                if (userId != null) {
                     emitEvent(LoginEvent.GoMain)
                 }
             }
@@ -37,7 +37,15 @@ class LoginViewModel constructor(
     }
 
     fun login() {
-
+        viewModelScope.launch {
+            val response = repository.signUp(RequestUser(name.value, phoneNumber.value))
+            if (response.isSuccessful) {
+                repository.setAutoLogin(response.body()!!.data!!._id)
+            } else {
+                Log.d("ViewModelssss", "viewmodel : ${response.errorBody()!!.string()}")
+                emitEvent(LoginEvent.ShowToast("중복된 유저입니다"))
+            }
+        }
     }
 
     private fun emitEvent(event: LoginEvent) {
@@ -49,6 +57,7 @@ class LoginViewModel constructor(
 
 sealed class LoginEvent {
     object GoMain : LoginEvent()
+    data class ShowToast(val msg: String) : LoginEvent()
 }
 
 class LoginViewModelFactory(private val repository: LoginRepository) : ViewModelProvider.Factory {
