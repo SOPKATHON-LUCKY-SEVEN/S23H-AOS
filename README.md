@@ -30,4 +30,21 @@
 
 ### 4) 브랜치 전략
 - 각자 고유 브랜치 생성
-- 오프라인 소통이 가능한 점을 고려하여, 구두로 승인 후 머지
+
+### 5) 각자 맡은 뷰 설명
+
+![Starlist_Detail](https://user-images.githubusercontent.com/81347125/169671839-599d0221-cb15-4eb6-9a0c-6effb54ab423.png)
+- 용민 : 다이얼로그를 통해 편지 확인 가능
+![Starlist](https://user-images.githubusercontent.com/81347125/169671841-5428a5ee-4379-4f04-84ed-6c5fff7fd5d9.png)
+- 세훈,원용 : 편지가 도착하는 뷰, 해당 별모양 아이콘 클릭 시 다이얼로그 호출
+![Write_Writing](https://user-images.githubusercontent.com/81347125/169671842-a64d835a-b52f-4bbf-84eb-93f5497a5468.png)
+- 세훈 : 편지내용 쓰는 뷰, 해당 편지텍스트가 비어있을 경우 버튼 비활성화
+![Main](https://user-images.githubusercontent.com/81347125/169671844-c1c7abb0-e751-4f83-bc6a-db9efb3d1e4b.png)  
+- 용민 : 리사이클러뷰 구현 및 인텐트전달
+![Name_ write](https://user-images.githubusercontent.com/81347125/169671845-78d362af-778f-45ce-abdc-30c6ec667a60.png)  
+- 원용 : 회원가입 뷰, 자동로그인 구현
+![Splash](https://user-images.githubusercontent.com/81347125/169671846-1e611306-e5ca-48c8-9ccf-17d1f0538ff9.png)  
+- 원용 : 스플래쉬 
+
+
+
