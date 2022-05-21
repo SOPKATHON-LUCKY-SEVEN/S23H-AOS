@@ -1,17 +1,18 @@
 package com.sopt.soptkathon.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.sopt.soptkathon.data.login.LoginRepository
+import com.sopt.soptkathon.data.remote.request.RequestUser
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 
 class LoginViewModel constructor(
     private val repository: LoginRepository
@@ -23,12 +24,12 @@ class LoginViewModel constructor(
     val isInputEmpty: LiveData<Boolean> = name.combine(phoneNumber) { name, phoneNumber ->
         name.isNotEmpty() && phoneNumber.isNotEmpty()
     }.asLiveData()
-    val eventFlow = _eventFlow.asSharedFlow()
+    val uiEventFlow = _eventFlow.asSharedFlow()
 
     init {
         viewModelScope.launch {
-            repository.isAutoLogin().collect { userId ->
-                if (userId != -1) {
+            repository.getUserId().collect { userId ->
+                if (userId != null) {
                     emitEvent(LoginEvent.GoMain)
                 }
             }
@@ -36,25 +37,14 @@ class LoginViewModel constructor(
     }
 
     fun login() {
-        if (validate(name.value, phoneNumber.value) != null) {
-            emitEvent(LoginEvent.ShowToast(validate(name.value, phoneNumber.value)!!))
-        } else {
-            viewModelScope.launch {
-                // response 추가
-
-                repository.setAutoLogin(1)
+        viewModelScope.launch {
+            val response = repository.signUp(RequestUser(name.value, phoneNumber.value))
+            if (response.isSuccessful) {
+                repository.setAutoLogin(response.body()!!.data!!._id)
+            } else {
+                Log.d("ViewModelssss", "viewmodel : ${response.errorBody()!!.string()}")
+                emitEvent(LoginEvent.ShowToast("중복된 유저입니다"))
             }
-        }
-    }
-
-    private fun validate(name: String, phoneNumber: String): String? {
-        return when {
-            !Pattern.matches("^[가-힣]*\$", name) -> "이름을 다시 입력해주세요"
-            !Pattern.matches(
-                "^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})\$",
-                phoneNumber
-            ) -> "전화번호를 다시 입력해주세요"
-            else -> null
         }
     }
 
@@ -66,8 +56,8 @@ class LoginViewModel constructor(
 }
 
 sealed class LoginEvent {
-    data class ShowToast(val msg: String) : LoginEvent()
     object GoMain : LoginEvent()
+    data class ShowToast(val msg: String) : LoginEvent()
 }
 
 class LoginViewModelFactory(private val repository: LoginRepository) : ViewModelProvider.Factory {

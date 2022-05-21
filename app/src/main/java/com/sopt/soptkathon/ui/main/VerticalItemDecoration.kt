@@ -12,6 +12,6 @@ class VerticalItemDecoration : RecyclerView.ItemDecoration() {
         state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-        outRect.bottom=11
+        outRect.bottom = 11
     }
 }

@@ -4,25 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rectanlge_gradient"
     tools:context=".ui.write.WriteActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_write_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="TextView"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="93dp"
+        android:text="To."
         android:textAppearance="?textAppearanceHeadline3"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_write_btnback"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_write_towho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        android:layout_marginStart="3dp"
+        android:textAppearance="?textAppearanceHeadline3"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_write_to"
+        app:layout_constraintStart_toEndOf="@+id/tv_write_to"
+        app:layout_constraintTop_toTopOf="@+id/tv_write_to"
+        android:text="권용민" />
 
     <TextView
         android:id="@+id/tv_write_btnsend"
@@ -30,32 +38,131 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rectangle_radius_10"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/blue_576FAE"
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:text="보내기"
+        android:textAppearance="@style/TextAppearance.Star23.HeadLine4"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
+        android:shadowColor="#26000000"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        app:cardBackgroundColor="#8CFFFFFF"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_write_fromwho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_write_line1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_write_letter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="32dp"
+                android:background="@null"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="감사한 내용을 입력해주세요."
+                android:inputType="textPersonName"
+                android:textAppearance="@style/TextAppearance.Star23.HeadLine5"
+                android:textColor="@color/grey_313740"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_write_btnback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_arrow_back" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <ImageView
+        android:id="@+id/iv_write_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/tv_write_btnsend"
+        android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_logo" />
+
+    <TextView
+        android:id="@+id/tv_write_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="56dp"
+        android:text="From."
+        android:textAppearance="@style/TextAppearance.Star23.HeadLine3"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tv_write_btnsend"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_write_fromwho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="닉네임"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.Star23.HeadLine3"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white_FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/tv_write_from"
+        app:layout_constraintTop_toTopOf="@+id/tv_write_from" />
+
+    <ImageView
+        android:id="@+id/iv_write_line1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_write_to"
+        app:srcCompat="@drawable/line_width_1dp" />
+
+    <ImageView
+        android:id="@+id/iv_write_line2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_write_fromwho"
+        app:srcCompat="@drawable/line_width_1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

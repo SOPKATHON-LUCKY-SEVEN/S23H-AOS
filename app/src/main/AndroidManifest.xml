@@ -15,10 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Soptkathon"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.write.WriteActivity"
+            android:name=".ui.read.ReadActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.write.WriteActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
