@@ -2,6 +2,7 @@ package com.sopt.soptkathon.data.remote.api
 
 import com.sopt.soptkathon.data.remote.request.RequestUser
 import com.sopt.soptkathon.data.remote.request.RequestWrite
+import com.sopt.soptkathon.data.remote.response.*
 import com.sopt.soptkathon.data.remote.response.ResponseLetter
 import com.sopt.soptkathon.data.remote.response.ResponseUser
 import com.sopt.soptkathon.data.remote.response.ResponseWrapper
@@ -28,5 +29,10 @@ interface ApiService {
     fun postWrite(
         @Body body: RequestWrite
     ): Call<ResponseWrite>
+
+    @GET("/user/{userId}")
+    fun getFreindList(
+        @Path("userId") userId: String
+    ):Call<ResponseMain>
 }
 
