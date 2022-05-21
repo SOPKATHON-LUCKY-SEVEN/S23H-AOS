@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-                    this.shortToast("별이 보내졌습니다.")
+                    val name = result.data?.getStringExtra(KEY_FRIEND_NAME)
+                    this.shortToast("${name}님에게 감사의 별을 보냈어요!")
                 } else {
                     this.shortToast("별 보내기를 취소했습니다.")
                 }
