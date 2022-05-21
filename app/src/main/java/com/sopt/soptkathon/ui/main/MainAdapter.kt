@@ -15,7 +15,7 @@ class MainAdapter(private val onFriendClick: ((ResponseMain.Data) -> Unit)? = nu
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseMain.Data, onFriendClick: ((ResponseMain.Data) -> Unit)? = null) {
             binding.friendData = data
-            binding.root.setOnClickListener {
+            binding.btnSendStar.setOnClickListener {
                 onFriendClick?.invoke(data)
             }
         }
