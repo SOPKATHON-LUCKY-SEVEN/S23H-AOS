@@ -2,10 +2,7 @@ package com.sopt.soptkathon.data.remote.api
 
 import com.sopt.soptkathon.data.remote.request.RequestUser
 import com.sopt.soptkathon.data.remote.request.RequestWrite
-import com.sopt.soptkathon.data.remote.response.ResponseLetterList
-import com.sopt.soptkathon.data.remote.response.ResponseUser
-import com.sopt.soptkathon.data.remote.response.ResponseWrapper
-import com.sopt.soptkathon.data.remote.response.ResponseWrite
+import com.sopt.soptkathon.data.remote.response.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -28,5 +25,10 @@ interface ApiService {
     fun postWrite(
         @Body body: RequestWrite
     ): Call<ResponseWrite>
+
+    @GET("/user/{userId}")
+    fun getFreindList(
+        @Path("userId") userId: String
+    ):Call<ResponseMain>
 }
 

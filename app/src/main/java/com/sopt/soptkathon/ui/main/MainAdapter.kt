@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopt.soptkathon.data.remote.response.ResponseMain
 import com.sopt.soptkathon.databinding.ItemFriendListBinding
 
-class MainAdapter : ListAdapter<ResponseMain.Data, MainAdapter.MainViewHolder>(MainComparator()) {
+class MainAdapter(private val onFriendClick: ((ResponseMain.Data) -> Unit)? = null) :
+    ListAdapter<ResponseMain.Data, MainAdapter.MainViewHolder>(MainComparator()) {
 
     class MainViewHolder(private val binding: ItemFriendListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: ResponseMain.Data) {
+        fun onBind(data: ResponseMain.Data, onFriendClick: ((ResponseMain.Data) -> Unit)? = null) {
             binding.friendData = data
+            binding.root.setOnClickListener {
+                onFriendClick?.invoke(data)
+            }
         }
     }
 
@@ -41,6 +45,6 @@ class MainAdapter : ListAdapter<ResponseMain.Data, MainAdapter.MainViewHolder>(M
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        return holder.onBind(getItem(position))
+        return holder.onBind(getItem(position), onFriendClick)
     }
 }
