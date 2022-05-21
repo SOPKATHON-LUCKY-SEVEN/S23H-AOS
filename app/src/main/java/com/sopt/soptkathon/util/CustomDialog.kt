@@ -10,17 +10,20 @@ import com.sopt.soptkathon.databinding.DialogLetterBinding
 
 class CustomDialog(private val context: AppCompatActivity) {
     private lateinit var binding: DialogLetterBinding
-//    private lateinit var bindingReadBinding: DialogReadBinding
+
+    //    private lateinit var bindingReadBinding: DialogReadBinding
 //    private lateinit var bindingCreateAskBinding : DialogCreateaskBinding
     private val dialog = Dialog(context)
 
-    fun showDialog(@LayoutRes layout: Int){
+    fun showDialog(@LayoutRes layout: Int, content: String, name: String?) {
         binding = DialogLetterBinding.inflate(context.layoutInflater)
-        dialog.apply{
+        dialog.apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(binding.root)
             setCancelable(true)
         }
+        binding.tvDialogLetter.text = content
+        binding.tvDialogName.text = name ?: "익명"
         dialog.show()
         dialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
     }
