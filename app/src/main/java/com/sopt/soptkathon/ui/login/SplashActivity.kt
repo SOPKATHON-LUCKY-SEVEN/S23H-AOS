@@ -9,6 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.ui.main.MainActivity
+import com.sopt.soptkathon.util.colorOf
+import com.sopt.soptkathon.util.setStatusBarColor
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -20,6 +22,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        setStatusBarColor(colorOf(R.color.navy_313249))
         viewModel.uiEventFlow
             .flowWithLifecycle(lifecycle)
             .onEach(this::handleEvent)

@@ -14,7 +14,9 @@ import com.sopt.soptkathon.data.remote.request.RequestWrite
 import com.sopt.soptkathon.databinding.ActivityWriteBinding
 import com.sopt.soptkathon.ui.main.MainActivity
 import com.sopt.soptkathon.ui.main.MainActivity.Companion.KEY_FRIEND_NAME
+import com.sopt.soptkathon.util.colorOf
 import com.sopt.soptkathon.util.enqueueUtil
+import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
 
 class WriteActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class WriteActivity : AppCompatActivity() {
     private val viewModel: WriteViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColor(colorOf(R.color.purple_D6B6D4))
         binding = ActivityWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViewModel()
