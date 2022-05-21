@@ -22,8 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.write.WriteActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
+            android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
