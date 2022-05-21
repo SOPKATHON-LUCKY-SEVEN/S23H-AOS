@@ -7,7 +7,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.sopt.soptkathon.R
+import com.sopt.soptkathon.data.remote.response.ResponseMain
 import com.sopt.soptkathon.databinding.ActivityMainBinding
+import com.sopt.soptkathon.ui.write.WriteActivity
 import com.sopt.soptkathon.util.colorOf
 import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setResultWriting()
+        getFriendList()
+        initAdapter()
     }
 
     private fun setResultWriting() {
@@ -39,20 +43,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickFab() {
         binding.fabMain.setOnClickListener {
-            //TODO
+            //TODO 별자리 뷰로 가야됨
         }
     }
 
-    private fun onClickItem() {
-        //val intent = Intent(this, WriteActivity::class.java)
-        //intent.putExtra()
-        //resultLauncher.launch(intent)
+    private fun onClickItem(data: ResponseMain.Data) {
+        val intent = Intent(this, WriteActivity::class.java)
+        intent.putExtra(KEY_FRIEND_ID, data.id)
+        intent.putExtra(KEY_FRIEND_NAME, data.name)
+        resultLauncher.launch(intent)
+    }
+
+    private fun getFriendList() {
+        viewModel.getFriendList()
     }
 
     private fun initAdapter() {
-        adapter = MainAdapter()
+        adapter = MainAdapter { onClickItem(it) }
         binding.rvFriendList.adapter = adapter
         binding.rvFriendList.addItemDecoration(VerticalItemDecoration())
-        // adapter.submitList()
+        adapter.submitList(viewModel.friendData.value)
+    }
+
+    companion object {
+        const val KEY_FRIEND_ID = "KEY_FRIEND_ID"
+        const val KEY_FRIEND_NAME = "KEY_FRIEND_NAME"
     }
 }
