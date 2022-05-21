@@ -1,8 +1,7 @@
 package com.sopt.soptkathon.ui.login
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -12,6 +11,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityLoginBinding
+import com.sopt.soptkathon.ui.main.MainActivity
+import com.sopt.soptkathon.util.shortToast
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
@@ -41,15 +42,11 @@ class LoginActivity : AppCompatActivity() {
     private fun handleEvent(loginEvent: LoginEvent) {
         when (loginEvent) {
             is LoginEvent.ShowToast -> {
-                Toast.makeText(
-                    this,
-                    loginEvent.msg,
-                    Toast.LENGTH_SHORT
-                ).show()
+                shortToast(loginEvent.msg)
             }
             is LoginEvent.GoMain -> {
-                // 이동
-                Log.d("asdfasdfs", "GoMain")
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
     }

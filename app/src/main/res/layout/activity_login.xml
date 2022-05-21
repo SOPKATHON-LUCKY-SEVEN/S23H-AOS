@@ -12,7 +12,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,56 +23,71 @@
                 android:id="@+id/tv_login_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="228dp"
-                android:text="이름"
-                android:textSize="20sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text="이름을 알려주세요"
+                android:textSize="27sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/et_login_name"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="예 강원용"
-                android:inputType="text"
-                android:maxLines="1"
-                android:text="@={vm.name}"
+                app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_login_name" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_login_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="특수문자는 사용할 수 없습니다."
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:text="@={vm.name}" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_login_phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:text="전화번호"
-                android:textSize="20sp"
+                android:text="전화번호를 알려주세요"
+                android:textSize="27sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_login_name" />
+                app:layout_constraintTop_toBottomOf="@+id/til_login" />
 
-            <EditText
-                android:id="@+id/et_login_number"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_login_phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="01027579265"
-                android:inputType="numberDecimal"
-                android:maxLength="11"
-                android:maxLines="1"
-                android:text="@={vm.phoneNumber}"
+                app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_login_phone_number" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_phone_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_login_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="01027579265"
+                    android:inputType="numberDecimal"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:text="@={vm.phoneNumber}" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_login"
                 isText="@{vm.isInputEmpty}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
                 android:background="@drawable/login_btn_selector"
                 android:onClick="@{()->vm.login()}"
                 android:text="login"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_login_number" />
+                app:layout_constraintTop_toBottomOf="@+id/til_login_phone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

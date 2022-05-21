@@ -22,4 +22,9 @@
         <item name="textAppearanceSubtitle2">@style/TextAppearance.Star23.SubTitle2</item>
         <item name="textAppearanceBody1">@style/TextAppearance.Star23.Body1</item>
     </style>
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
+        <item name="colorControlActivated">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+    </style>
 </resources>
