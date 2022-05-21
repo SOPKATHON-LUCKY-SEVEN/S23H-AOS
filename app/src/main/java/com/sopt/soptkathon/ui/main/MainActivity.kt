@@ -10,6 +10,7 @@ import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.data.remote.response.ResponseMain
 import com.sopt.soptkathon.databinding.ActivityMainBinding
+import com.sopt.soptkathon.ui.read.ReadActivity
 import com.sopt.soptkathon.ui.read.ReadViewModelFactory
 import com.sopt.soptkathon.ui.write.WriteActivity
 import com.sopt.soptkathon.util.colorOf
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         setResultWriting()
         getFriendList()
         initAdapter()
+        clickFab()
     }
 
     private fun setResultWriting() {
@@ -47,7 +49,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickFab() {
         binding.fabMain.setOnClickListener {
-            //TODO 별자리 뷰로 가야됨
+            val intent = Intent(this, ReadActivity::class.java)
+            startActivity(intent)
         }
     }
 

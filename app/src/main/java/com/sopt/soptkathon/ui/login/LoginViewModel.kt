@@ -29,7 +29,7 @@ class LoginViewModel constructor(
     init {
         viewModelScope.launch {
             repository.getUser().collect { userId ->
-                if (userId != null) {
+                if (userId!!.first != null) {
                     emitEvent(LoginEvent.GoMain)
                 }
             }
