@@ -18,12 +18,17 @@
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/ic_star_sign_1.xml" value="0.259" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/ic_star_sign_2.xml" value="0.259" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/ic_star_sign_4.xml" value="0.259" />
+        <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/login_btn_selector.xml" value="0.1785" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectangle_border_10dp.xml" value="0.259" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectangle_radius_10.xml" value="0.259" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectangle_radius_15.xml" value="0.2255" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectangle_radius_8.xml" value="0.259" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectanlge_gradient.xml" value="0.159" />
+        <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/drawable/rectanlge_unfill_radius_10.xml" value="0.1225" />
+        <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/activity_main.xml" value="0.4252450980392157" />
+        <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/activity_read.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/activity_write.xml" value="0.2" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/dialog_letter.xml" value="0.264" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/item_friend_list.xml" value="0.264" />
         <entry key="..\:/Users/brian/AndroidStudioProjects/Anonymous-AOS/app/src/main/res/layout/letter_dialog.xml" value="0.16614583333333333" />
