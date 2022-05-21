@@ -24,6 +24,7 @@ class ReadActivity : AppCompatActivity() {
         setStatusBarColor(colorOf(R.color.purple_D6B6D4))
         binding = DataBindingUtil.setContentView<ActivityReadBinding?>(this, R.layout.activity_read)
             .apply {
+                vm = viewModel
                 lifecycleOwner = this@ReadActivity
             }
         viewModel.getList()
