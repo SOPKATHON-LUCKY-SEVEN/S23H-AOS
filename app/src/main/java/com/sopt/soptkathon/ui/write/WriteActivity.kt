@@ -14,23 +14,27 @@ import com.sopt.soptkathon.util.shortToast
 
 class WriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWriteBinding
+    private val content: String = intent.getStringExtra(MainActivity.KEY_FRIEND_ID) ?: ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tvWriteTowho.text = intent.getStringExtra(MainActivity.KEY_FRIEND_NAME)
         // binding.tvWriteBtnsend.isEnabled = false
         // activateBtn()
         clickEvent()
     }
 
     private fun clickEvent() {
+
         with(binding) {
             ivWriteBtnback.setOnClickListener {
                 finish()
             }
             tvWriteBtnsend.setOnClickListener {
                 val requestWrite = RequestWrite(
-                    content = etWriteLetter.text.toString(),
+                    content = content,
                     sender = etWriteFromwho.text.toString(),
                     receiver = tvWriteTo.text.toString()
                 )
