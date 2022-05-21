@@ -1,14 +1,13 @@
 package com.sopt.soptkathon.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.sopt.soptkathon.R
+import androidx.appcompat.app.AppCompatActivity
 import com.sopt.soptkathon.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
-    private lateinit var adapter : MainAdapter
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: MainAdapter
     private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         initAdapter()
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         //TODO
     }
 }
