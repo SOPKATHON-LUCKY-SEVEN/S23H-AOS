@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sopt.soptkathon">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".MainApp"
         android:allowBackup="true"
