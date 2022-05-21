@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setResultWriting()
+        clickFab()
         initAdapter()
     }
 
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         binding.fabMain.setOnClickListener {
             val intent = Intent(this, WriteActivity::class.java)
             // intent.putExtra()
+            resultLauncher.launch(intent)
         }
     }
 
