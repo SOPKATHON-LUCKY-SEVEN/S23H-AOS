@@ -12,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_rectangle_white_opacity">
 
         <ImageView
             android:id="@+id/iv_profile"
@@ -20,12 +21,11 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginVertical="12dp"
-            app:layout_constraintWidth_percent="0.17"
+            tools:src="@drawable/ic_star_sign_4"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_main_name"
@@ -33,6 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             tools:text="권용민"
+            android:textColor="@color/black_1A1E23"
+            android:textAppearance="@style/TextAppearance.Star23.HeadLine4"
             app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
             app:layout_constraintStart_toEndOf="@+id/iv_profile"
             app:layout_constraintTop_toTopOf="@+id/iv_profile" />
@@ -41,7 +43,10 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="별 보내기"
+            android:textColor="@color/white"
+            android:background="@drawable/rectangle_radius_8"
+            android:backgroundTint="@color/blue_576FAE"
             android:layout_marginEnd="16dp"
             android:layout_marginVertical="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
