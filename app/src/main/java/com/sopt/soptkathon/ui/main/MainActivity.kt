@@ -6,8 +6,10 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityMainBinding
 import com.sopt.soptkathon.ui.write.WriteActivity
+import com.sopt.soptkathon.util.CustomDialog
 import com.sopt.soptkathon.util.shortToast
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.ivMainAddFriend.setOnClickListener{
+            val customDialog = CustomDialog(this)
+            customDialog.showDialog(R.layout.dialog_letter)
+        }
 
         setResultWriting()
         clickFab()
