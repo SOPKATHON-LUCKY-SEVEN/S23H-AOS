@@ -2,10 +2,12 @@ package com.sopt.soptkathon.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.data.remote.response.ResponseMain
@@ -18,7 +20,7 @@ import com.sopt.soptkathon.util.shortToast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: MainAdapter
+    private lateinit var adapter1: MainAdapter
     private val viewModel by viewModels<MainViewModel>{
         MainViewModelFactory((application as MainApp).repository)
     }
@@ -63,10 +65,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        adapter = MainAdapter { onClickItem(it) }
-        binding.rvFriendList.adapter = adapter
+        adapter1 = MainAdapter { onClickItem(it) }
+        binding.rvFriendList.adapter = adapter1
         binding.rvFriendList.addItemDecoration(VerticalItemDecoration())
-        adapter.submitList(viewModel.friendData.value)
+        viewModel.friendData.observe(this) {
+            adapter1.submitList(viewModel.friendData.value)
+        }
     }
 
     companion object {
