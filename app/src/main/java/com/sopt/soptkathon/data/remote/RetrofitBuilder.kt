@@ -1,5 +1,6 @@
-package com.sopt.soptkathon.data
+package com.sopt.soptkathon.data.remote
 
+import com.sopt.soptkathon.data.remote.api.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
