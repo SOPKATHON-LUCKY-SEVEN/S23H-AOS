@@ -6,9 +6,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.data.remote.response.ResponseMain
 import com.sopt.soptkathon.databinding.ActivityMainBinding
+import com.sopt.soptkathon.ui.read.ReadViewModelFactory
 import com.sopt.soptkathon.ui.write.WriteActivity
 import com.sopt.soptkathon.util.colorOf
 import com.sopt.soptkathon.util.setStatusBarColor
@@ -17,7 +19,9 @@ import com.sopt.soptkathon.util.shortToast
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: MainAdapter
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>{
+        MainViewModelFactory((application as MainApp).repository)
+    }
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
