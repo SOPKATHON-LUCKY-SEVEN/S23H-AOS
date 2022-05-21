@@ -7,9 +7,9 @@ import com.sopt.soptkathon.data.remote.response.ResponseMain
 
 class MainViewModel : ViewModel() {
     private var _friendData = MutableLiveData<List<ResponseMain.Data>>()
-    private val friendData : LiveData<List<ResponseMain.Data>> get() = _friendData
+    private val friendData: LiveData<List<ResponseMain.Data>> get() = _friendData
 
-    fun getFriendList(){
+    fun getFriendList() {
         //TODO
     }
 }
