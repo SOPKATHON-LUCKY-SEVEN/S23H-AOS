@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface ApiService {
     @POST("/letter")
-    fun postSignUp(
+    fun postWrite(
         @Body body: RequestWrite
     ): Call<ResponseWrite>
 }
