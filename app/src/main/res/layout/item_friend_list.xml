@@ -12,65 +12,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_radius_10"
+        android:backgroundTint="#8CFFFFFF">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="12dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_star_sign_4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:cardBackgroundColor="#8CFFFFFF"
-            app:cardCornerRadius="10dp"
-            android:shadowDx="4"
-            android:shadowDy="4"
-            android:shadowColor="#26000000">
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_main_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{friendData.name}"
+            android:textAppearance="@style/TextAppearance.Star23.HeadLine4"
+            android:textColor="@color/black_1A1E23"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+            app:layout_constraintStart_toEndOf="@+id/iv_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile"
+            tools:text="권용민" />
 
-                <ImageView
-                    android:id="@+id/iv_profile"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginVertical="12dp"
-                    tools:src="@drawable/ic_star_sign_4"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_main_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    tools:text="권용민"
-                    android:text="@{friendData.name}"
-                    android:textColor="@color/black_1A1E23"
-                    android:textAppearance="@style/TextAppearance.Star23.HeadLine4"
-                    app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-                    app:layout_constraintStart_toEndOf="@+id/iv_profile"
-                    app:layout_constraintTop_toTopOf="@+id/iv_profile" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_send_star"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="별 보내기"
-                    android:textColor="@color/white"
-                    android:background="@drawable/rectangle_radius_8"
-                    android:backgroundTint="@color/blue_576FAE"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginVertical="22dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/btn_send_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="22dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rectangle_radius_8"
+            android:backgroundTint="@color/blue_576FAE"
+            android:padding="10dp"
+            android:text="별 보내기"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
