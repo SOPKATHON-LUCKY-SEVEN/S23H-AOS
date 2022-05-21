@@ -17,7 +17,7 @@
 ### - **Issue Number**
 
 - 솝커톤 내에서 사용하지 않기로 함
-- 
+
 ### - **Base Structure**
 
 ```
