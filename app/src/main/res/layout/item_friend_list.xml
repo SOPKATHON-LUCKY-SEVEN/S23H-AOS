@@ -16,20 +16,38 @@
 
         <ImageView
             android:id="@+id/iv_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="12dp"
+            app:layout_constraintWidth_percent="0.17"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_main_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="TextView"
+            android:layout_marginStart="20dp"
+            tools:text="권용민"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
             app:layout_constraintStart_toEndOf="@+id/iv_profile"
             app:layout_constraintTop_toTopOf="@+id/iv_profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:layout_marginEnd="16dp"
+            android:layout_marginVertical="22dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
