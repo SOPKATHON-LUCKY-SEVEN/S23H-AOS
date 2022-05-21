@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_write_to"
         app:layout_constraintStart_toEndOf="@+id/tv_write_to"
         app:layout_constraintTop_toTopOf="@+id/tv_write_to"
-        android:text="권용민" />
+        tools:text="권용민" />
 
     <TextView
         android:id="@+id/tv_write_btnsend"
