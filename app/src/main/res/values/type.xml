@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Star23" parent="">
+        <item name="fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="TextAppearance.Star23.HeadLine1">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.HeadLine2">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.HeadLine3">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.HeadLine4">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.HeadLine5">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.SubTitle1">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.SubTitle2">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Star23.Body1">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+</resources>
