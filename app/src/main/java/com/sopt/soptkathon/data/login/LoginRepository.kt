@@ -1,10 +1,10 @@
 package com.sopt.soptkathon.data.login
 
 import android.content.Context
-import android.util.Log
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.sopt.soptkathon.data.remote.RetrofitBuilder.customRetrofit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
