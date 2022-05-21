@@ -2,6 +2,7 @@ package com.sopt.soptkathon.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -63,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
     private fun handleEvent(loginEvent: LoginEvent) {
         when (loginEvent) {
             is LoginEvent.GoMain -> {
+                Log.d("safsadf","sdfasf")
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }

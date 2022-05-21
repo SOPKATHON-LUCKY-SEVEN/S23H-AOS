@@ -29,7 +29,7 @@ class ReadViewModel constructor(
             if (response.isSuccessful) {
                 _letterList.value = response.body()!!.data!!
                 _titleText.value = String.format(
-                    "이번 주 %s 님의 밤하늘은 %d명의 감사로 빛나고 있어요",
+                    "이번 주 %s 님의 밤하늘은 \n%d명의 감사로 빛나고 있어요",
                     user.value.first,
                     letterList.value.size
                 )
