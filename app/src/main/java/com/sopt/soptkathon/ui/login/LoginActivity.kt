@@ -1,6 +1,7 @@
 package com.sopt.soptkathon.ui.login
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityLoginBinding
 import com.sopt.soptkathon.ui.main.MainActivity
+import com.sopt.soptkathon.util.colorOf
+import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
 import kotlinx.coroutines.launch
 
@@ -23,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColor(colorOf(R.color.white))
         binding =
             DataBindingUtil.setContentView<ActivityLoginBinding?>(this, R.layout.activity_login)
                 .apply {

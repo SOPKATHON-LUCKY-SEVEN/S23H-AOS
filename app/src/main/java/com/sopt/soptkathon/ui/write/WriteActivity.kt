@@ -4,14 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityWriteBinding
 import com.sopt.soptkathon.ui.main.MainActivity
+import com.sopt.soptkathon.util.colorOf
+import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
 
 class WriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWriteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColor(colorOf(R.color.purple_D6B6D4))
         binding = ActivityWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.tvWriteBtnsend.isEnabled = false
