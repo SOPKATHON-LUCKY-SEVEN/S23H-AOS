@@ -18,9 +18,9 @@ class WriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvWriteBtnsend.isEnabled = false
+        // binding.tvWriteBtnsend.isEnabled = false
+        // activateBtn()
         clickEvent()
-        activateBtn()
     }
 
     private fun clickEvent() {
