@@ -1,17 +1,18 @@
 package com.sopt.soptkathon.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.sopt.soptkathon.data.login.LoginRepository
+import java.util.regex.Pattern
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 
 class LoginViewModel constructor(
     private val repository: LoginRepository
@@ -23,7 +24,7 @@ class LoginViewModel constructor(
     val isInputEmpty: LiveData<Boolean> = name.combine(phoneNumber) { name, phoneNumber ->
         name.isNotEmpty() && phoneNumber.isNotEmpty()
     }.asLiveData()
-    val eventFlow = _eventFlow.asSharedFlow()
+    val uiEventFlow = _eventFlow.asSharedFlow()
 
     init {
         viewModelScope.launch {
@@ -36,26 +37,7 @@ class LoginViewModel constructor(
     }
 
     fun login() {
-        if (validate(name.value, phoneNumber.value) != null) {
-            emitEvent(LoginEvent.ShowToast(validate(name.value, phoneNumber.value)!!))
-        } else {
-            viewModelScope.launch {
-                // response 추가
-
-                repository.setAutoLogin(1)
-            }
-        }
-    }
-
-    private fun validate(name: String, phoneNumber: String): String? {
-        return when {
-            !Pattern.matches("^[가-힣]*\$", name) -> "이름을 다시 입력해주세요"
-            !Pattern.matches(
-                "^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})\$",
-                phoneNumber
-            ) -> "전화번호를 다시 입력해주세요"
-            else -> null
-        }
+        Log.d("asdfasfas","${isInputEmpty.value}")
     }
 
     private fun emitEvent(event: LoginEvent) {
@@ -66,7 +48,6 @@ class LoginViewModel constructor(
 }
 
 sealed class LoginEvent {
-    data class ShowToast(val msg: String) : LoginEvent()
     object GoMain : LoginEvent()
 }
 

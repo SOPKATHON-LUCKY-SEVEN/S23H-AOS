@@ -35,6 +35,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxStrokeErrorColor="@color/red_C8094E"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
+                app:errorTextColor="@color/red_C8094E"
                 app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_name">
@@ -42,11 +47,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_login_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="특수문자는 사용할 수 없습니다."
                     android:maxLength="5"
                     android:maxLines="1"
-                    android:text="@={vm.name}" />
+                    android:paddingVertical="15dp"
+                    android:text="@={vm.name}"
+                    android:textColor="@color/black_1A1E23" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -63,6 +70,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxStrokeErrorColor="@color/red_C8094E"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
+                app:errorTextColor="@color/red_C8094E"
                 app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_phone_number">
@@ -70,12 +82,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_login_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="01027579265"
                     android:inputType="numberDecimal"
                     android:maxLength="11"
                     android:maxLines="1"
-                    android:text="@={vm.phoneNumber}" />
+                    android:paddingVertical="15dp"
+                    android:text="@={vm.phoneNumber}"
+                    android:textColor="@color/black_1A1E23" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -84,8 +98,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/login_btn_selector"
-                android:onClick="@{()->vm.login()}"
                 android:text="login"
+                android:textColor="@color/white_FFFFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/til_login_phone" />
 
