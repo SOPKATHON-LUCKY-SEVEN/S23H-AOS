@@ -47,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     tools:text="권용민"
+                    android:text="@{friendData.name}"
                     android:textColor="@color/black_1A1E23"
                     android:textAppearance="@style/TextAppearance.Star23.HeadLine4"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
@@ -54,7 +55,7 @@
                     app:layout_constraintTop_toTopOf="@+id/iv_profile" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button"
+                    android:id="@+id/btn_send_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="별 보내기"
