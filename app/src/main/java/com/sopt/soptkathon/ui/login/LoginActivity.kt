@@ -5,15 +5,16 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.sopt.soptkathon.MainApp
 import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityLoginBinding
 import com.sopt.soptkathon.ui.main.MainActivity
 import com.sopt.soptkathon.util.shortToast
-import kotlinx.coroutines.launch
+import java.util.regex.Pattern
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -30,23 +31,40 @@ class LoginActivity : AppCompatActivity() {
                     lifecycleOwner = this@LoginActivity
                 }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.eventFlow.collect { event ->
-                    handleEvent(event)
-                }
+        viewModel.uiEventFlow
+            .flowWithLifecycle(lifecycle)
+            .onEach(this::handleEvent)
+            .launchIn(lifecycleScope)
+
+        binding.btnLoginLogin.setOnClickListener {
+            var temp = true
+            if (!Pattern.matches("^[가-힣]*\$", viewModel.name.value)) {
+                binding.tilLogin.error =
+                    "특수문자를 사용할 수 없습니다."
+                temp = false
+            } else binding.tilLogin.error = null
+            if (!Pattern.matches(
+                    "^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})\$",
+                    viewModel.phoneNumber.value
+                )
+            ) {
+                binding.tilLoginPhone.error = "전화번호를 다시 입력해주세요"
+                temp = false
+            } else binding.tilLoginPhone.error = null
+            if (temp) {
+                viewModel.login()
             }
         }
     }
 
     private fun handleEvent(loginEvent: LoginEvent) {
         when (loginEvent) {
-            is LoginEvent.ShowToast -> {
-                shortToast(loginEvent.msg)
-            }
             is LoginEvent.GoMain -> {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
+            }
+            is LoginEvent.ShowToast -> {
+                shortToast(loginEvent.msg)
             }
         }
     }
