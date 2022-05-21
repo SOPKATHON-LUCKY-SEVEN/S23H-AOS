@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun clickFab() {
         binding.fabMain.setOnClickListener {
             val intent = Intent(this, WriteActivity::class.java)
-            //intent.putExtra()
+            // intent.putExtra()
             resultLauncher.launch(intent)
         }
     }
@@ -49,6 +49,6 @@ class MainActivity : AppCompatActivity() {
         adapter = MainAdapter()
         binding.rvFriendList.adapter = adapter
         binding.rvFriendList.addItemDecoration(VerticalItemDecoration())
-        //adapter.submitList()
+        // adapter.submitList()
     }
 }

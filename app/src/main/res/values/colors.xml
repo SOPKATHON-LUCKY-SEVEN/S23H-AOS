@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    
+
     <!-- custom color   -->
     <color name="blue_576FAE">#576FAE</color>
     <color name="purple_D6B6D4">#D6B6D4</color>
@@ -21,4 +21,6 @@
     <color name="grey_E8EAED">#E8EAED</color>
     <color name="grey_494F56">#494F56</color>
     <color name="white_FFFFFFFF">#FFFFFFFF</color>
+    <color name="grey_313740">#313740</color>
+    <color name="white_FFFFFF">#FFFFFF</color>
 </resources>
