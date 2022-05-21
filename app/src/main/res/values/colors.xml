@@ -10,6 +10,7 @@
 
 
     <!-- custom color   -->
+    <color name="navy_313249">#313249</color>
     <color name="blue_576FAE">#576FAE</color>
     <color name="purple_D6B6D4">#D6B6D4</color>
     <color name="white_FFFEE7">#FFFEE7</color>
