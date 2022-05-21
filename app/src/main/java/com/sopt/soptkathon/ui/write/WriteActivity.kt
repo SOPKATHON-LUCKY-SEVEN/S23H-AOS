@@ -3,24 +3,24 @@ package com.sopt.soptkathon.ui.write
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.sopt.soptkathon.R
+import com.sopt.soptkathon.data.remote.RetrofitBuilder
+import com.sopt.soptkathon.data.remote.request.RequestWrite
 import com.sopt.soptkathon.databinding.ActivityWriteBinding
 import com.sopt.soptkathon.ui.main.MainActivity
-import com.sopt.soptkathon.util.colorOf
-import com.sopt.soptkathon.util.setStatusBarColor
+import com.sopt.soptkathon.util.enqueueUtil
 import com.sopt.soptkathon.util.shortToast
 
 class WriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWriteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColor(colorOf(R.color.purple_D6B6D4))
         binding = ActivityWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvWriteBtnsend.isEnabled = false
+        // binding.tvWriteBtnsend.isEnabled = false
+        // activateBtn()
         clickEvent()
-        activateBtn()
     }
 
     private fun clickEvent() {
@@ -29,6 +29,20 @@ class WriteActivity : AppCompatActivity() {
                 finish()
             }
             tvWriteBtnsend.setOnClickListener {
+                val requestWrite = RequestWrite(
+                    content = etWriteLetter.text.toString(),
+                    sender = etWriteFromwho.text.toString(),
+                    receiver = tvWriteTo.text.toString()
+                )
+
+                val call = RetrofitBuilder.customRetrofit.postWrite(requestWrite)
+
+                call.enqueueUtil(
+                    onSuccess = {
+                        Log.d("원트?", it._id)
+                    }
+                )
+
                 val intent = Intent(this@WriteActivity, MainActivity::class.java)
                 setResult(Activity.RESULT_OK, intent)
                 finish()

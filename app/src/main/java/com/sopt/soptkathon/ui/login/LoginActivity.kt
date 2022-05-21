@@ -1,7 +1,6 @@
 package com.sopt.soptkathon.ui.login
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +14,9 @@ import com.sopt.soptkathon.ui.main.MainActivity
 import com.sopt.soptkathon.util.colorOf
 import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
-import java.util.regex.Pattern
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
