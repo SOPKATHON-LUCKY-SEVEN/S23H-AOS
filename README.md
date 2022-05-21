@@ -24,10 +24,10 @@
 <a href="https://github.com/SOPKATHON-LUCKY-SEVEN/S23H-AOS/blob/main/README/Git_Convention.md"> Git Convention </a>
 
 
-### 2) Code Naming Convention
+### 3) Code Naming Convention
 <a href="https://github.com/SOPKATHON-LUCKY-SEVEN/S23H-AOS/blob/main/README/Coding_Convention.md"> Code Naming Convention </a>
 
 
-### 3) 브랜치 전략
+### 4) 브랜치 전략
 - 각자 고유 브랜치 생성
 - 오프라인 소통이 가능한 점을 고려하여, 구두로 승인 후 머지
