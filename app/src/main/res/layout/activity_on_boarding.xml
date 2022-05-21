@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.OnBoardingActivity">
+
+        <ImageView
+            android:id="@+id/iv_onboard_logo"
+            android:layout_width="185dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="296dp"
+            android:src="@drawable/img_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_onboard_send"
+            isText="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginTop="131dp"
+            android:background="@drawable/login_btn_selector"
+            android:fontFamily="@font/pretendard_medium"
+            android:paddingHorizontal="92dp"
+            android:paddingVertical="15dp"
+            android:text="감사의 별 보내러가기"
+            android:textColor="@color/white_FFFFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_onboard_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

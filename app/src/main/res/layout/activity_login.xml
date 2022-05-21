@@ -10,31 +10,49 @@
             type="com.sopt.soptkathon.ui.login.LoginViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:context=".ui.login.LoginActivity">
+
+            <ImageView
+                android:id="@+id/iv_login_logo"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@drawable/img_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_login_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="49dp"
+                android:fontFamily="@font/pretendard_bold"
                 android:text="이름을 알려주세요"
-                android:textSize="27sp"
+                android:textColor="@color/black_1A1E23"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_login_logo" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_login"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="20dp"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxStrokeErrorColor="@color/red_C8094E"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
+                app:errorTextColor="@color/red_C8094E"
                 app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_name">
@@ -42,19 +60,25 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_login_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="특수문자는 사용할 수 없습니다."
                     android:maxLength="5"
                     android:maxLines="1"
-                    android:text="@={vm.name}" />
+                    android:paddingVertical="15dp"
+                    android:text="@={vm.name}"
+                    android:textColor="@color/black_1A1E23" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_login_phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="41dp"
+                android:fontFamily="@font/pretendard_bold"
                 android:text="전화번호를 알려주세요"
-                android:textSize="27sp"
+                android:textColor="@color/black_1A1E23"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/til_login" />
 
@@ -63,6 +87,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="20dp"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxStrokeErrorColor="@color/red_C8094E"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
+                app:errorTextColor="@color/red_C8094E"
                 app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_phone_number">
@@ -70,26 +101,33 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_login_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="01027579265"
+                    android:layout_height="48dp"
+                    android:hint="01012345678"
                     android:inputType="numberDecimal"
                     android:maxLength="11"
                     android:maxLines="1"
-                    android:text="@={vm.phoneNumber}" />
+                    android:paddingVertical="15dp"
+                    android:text="@={vm.phoneNumber}"
+                    android:textColor="@color/black_1A1E23" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_login"
                 isText="@{vm.isInputEmpty}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="180dp"
                 android:background="@drawable/login_btn_selector"
-                android:onClick="@{()->vm.login()}"
-                android:text="login"
+                android:fontFamily="@font/pretendard_medium"
+                android:paddingHorizontal="130dp"
+                android:paddingVertical="15dp"
+                android:text="시작하기"
+                android:textColor="@color/white_FFFFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/til_login_phone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </layout>
