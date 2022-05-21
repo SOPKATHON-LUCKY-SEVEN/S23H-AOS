@@ -28,7 +28,7 @@ class LoginViewModel constructor(
 
     init {
         viewModelScope.launch {
-            repository.getUserId().collect { userId ->
+            repository.getUser().collect { userId ->
                 if (userId != null) {
                     emitEvent(LoginEvent.GoMain)
                 }
@@ -40,7 +40,7 @@ class LoginViewModel constructor(
         viewModelScope.launch {
             val response = repository.signUp(RequestUser(name.value, phoneNumber.value))
             if (response.isSuccessful) {
-                repository.setAutoLogin(response.body()!!.data!!._id)
+                repository.setUser(response.body()!!.data!!._id, name.value)
             } else {
                 Log.d("ViewModelssss", "viewmodel : ${response.errorBody()!!.string()}")
                 emitEvent(LoginEvent.ShowToast("중복된 유저입니다"))
