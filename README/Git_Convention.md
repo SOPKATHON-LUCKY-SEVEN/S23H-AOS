@@ -14,11 +14,11 @@
 
 ## **Git Commit Message Convention**
 
-### **Issue Number**
+### - **Issue Number**
 
 - 솝커톤 내에서 사용하지 않기로 함
 - 
-### **Base Structure**
+### - **Base Structure**
 
 ```
 [TYPE] subject
@@ -26,7 +26,7 @@
 body
 ```
 
-**예시**
+- **예시**
 
 ```
 [Chore] 기초세팅중
@@ -34,22 +34,22 @@ body
 1. 아이콘에셋추가
 2. 폰트추가
 ```
-### **TYPE**
+### - **TYPE**
 
 - FEAT: 새로운 기능 개발(kotlin 작업)
 - FIX: 버그 수정
 - CHORE: Gradle이나 설정 세팅할 때
 
-### **Subject**
+### - **Subject**
 
 - 제목은 50글자 내외로 작성하는 것을 권장
 - 한글 사용
 
-### **Body**
+### - **Body**
 
 - Title에 Commit의 충분한 정보가 포함되지 않은 경우 그 내용을 표기
 - 각 행은 100글자가 넘지 않도록 주의
 
-### **Footer**
+### - **Footer**
 
 - 참조정보가 있는경우 그 내용을 표기
