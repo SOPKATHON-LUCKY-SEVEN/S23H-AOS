@@ -73,16 +73,16 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/dt_write_letter"
+                android:id="@+id/et_write_letter"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="32dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="32dp"
                 android:background="@null"
-                android:gravity="top"
                 android:ems="10"
+                android:gravity="top"
                 android:hint="감사한 내용을 입력해주세요."
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.Star23.HeadLine5"
