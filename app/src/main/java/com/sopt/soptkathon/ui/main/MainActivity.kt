@@ -6,8 +6,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.sopt.soptkathon.R
 import com.sopt.soptkathon.databinding.ActivityMainBinding
 import com.sopt.soptkathon.ui.write.WriteActivity
+import com.sopt.soptkathon.util.colorOf
+import com.sopt.soptkathon.util.setStatusBarColor
 import com.sopt.soptkathon.util.shortToast
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColor(colorOf(R.color.purple_D6B6D4))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
