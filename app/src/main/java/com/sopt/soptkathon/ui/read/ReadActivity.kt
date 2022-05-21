@@ -1,6 +1,7 @@
 package com.sopt.soptkathon.ui.read
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +22,7 @@ class ReadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStatusBarColor(colorOf(R.color.purple_D6B6D4))
-        binding = DataBindingUtil.setContentView<ActivityReadBinding>(this, R.layout.activity_read)
+        binding = DataBindingUtil.setContentView<ActivityReadBinding?>(this, R.layout.activity_read)
             .apply {
                 vm = viewModel
                 lifecycleOwner = this@ReadActivity
