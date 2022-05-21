@@ -29,11 +29,11 @@ class LoginViewModel : ViewModel() {
         return when {
             name.isEmpty() -> "이름을 입력해주세요"
             !Pattern.matches("^[가-힣]*\$", name) -> "유효한 이름을 입력해주세요"
-            phoneNumber.isEmpty() -> "비밀번호를 입력해주세요"
+            phoneNumber.isEmpty() -> "전화번호를 입력해주세요"
             !Pattern.matches(
                 "^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})\$",
                 phoneNumber
-            ) -> "유효한 이름을 입력해주세요"
+            ) -> "유효한 전화번호를 입력해주세요"
             else -> null
         }
     }

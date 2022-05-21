@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
-            DataBindingUtil.setContentView<ActivityLoginBinding?>(this, R.layout.activity_main)
+            DataBindingUtil.setContentView<ActivityLoginBinding?>(this, R.layout.activity_login)
                 .apply {
                     vm = viewModel
                     lifecycleOwner = this@LoginActivity
@@ -37,7 +37,6 @@ class LoginActivity : AppCompatActivity() {
     private fun handleEvent(loginEvent: LoginEvent) {
         when (loginEvent) {
             is LoginEvent.ShowToast -> {
-                Log.d("asdfasdfs", "ShowToast")
                 Toast.makeText(
                     this,
                     loginEvent.msg,
@@ -46,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
             }
             is LoginEvent.GoMain -> {
                 // 이동
+                Log.d("asdfasdfs", "GoMain")
             }
         }
     }
